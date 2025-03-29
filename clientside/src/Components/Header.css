@@ -1,0 +1,59 @@
+.logo {
+    display: flex;
+    align-items: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    gap: 10px;
+    color: rgb(29, 241, 29);
+    font-size: 20px;
+    font-weight: 1000px;
+}
+
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 50px;
+    color: white;
+    font-size: 20px;
+    font-weight: 500px;
+}
+.nav-menu li:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.fieldbox {
+    outline: #626262;
+    vertical-align: middle;
+}
+.log {
+    display: flex;
+    align-items: center;
+    font-family: Roboto;
+}
+
+
+@media (max-width: 750px) {
+    .logo {
+        display: flex;
+        align-items: center;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        gap: 5px;
+        color: rgb(29, 241, 29);
+        font-size: 13px;
+        font-weight: 500;
+    }
+
+    .nav-menu {
+        display: flex;
+        align-items: center;
+        list-style: none;
+        gap: 10px;
+        color: white;
+        font-size: 15px;
+        font-weight: 500px;
+    }
+
+}
+

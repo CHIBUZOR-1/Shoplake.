@@ -1,0 +1,54 @@
+
+.ord .container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+
+
+.img {
+    font-size: 40px;
+    width: 100%;
+    color: rgb(212, 186, 121);
+}
+
+.ord p span {
+    color: orangered;
+}
+
+.ord p p {
+    font-weight: 500;
+    color: #454545;
+}
+
+table button {
+    border: none;
+    padding: 12px 0px;
+    background-color: orangered;
+    border-radius: 5px;
+    cursor: pointer;
+    color: aliceblue;
+    font-size: small;
+    height: 35px;
+    width: 60px;
+    padding: 4px;
+    font-weight: 500;
+}
+
+table button:active {
+    background-color: aquamarine;
+    color: orangered;
+}
+
+
+tr {
+   width: 100%; 
+}
+
+tr td{
+    width: 50px;
+    border: none;
+    text-align: center;
+}

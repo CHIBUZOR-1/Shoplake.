@@ -1,0 +1,171 @@
+.product-display {
+    display: flex;
+    margin: 0px auto;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 16px;
+}
+  
+.display-left {
+    display: flex;
+    gap: 5px;
+}
+  
+.main-img {
+    width: 100%;
+    height: 100%;
+}
+  
+.display-right {
+    margin: 0px 30px;
+    display: flex;
+    flex-direction: column;
+}
+  
+.display-right h1 {
+    color: #3d3d3d;
+    font-size: 30px;
+    font-weight: 700;
+}
+  
+.display-right rating {
+    display: flex;
+    align-items: center;
+    margin-top: 13px;
+    gap: 5px;
+    color: #1c1c1c;
+    font-size: 16px;
+}
+  
+.prices {
+    display: flex;
+    margin: 40px 0px;
+    gap: 30px;
+    font-size: 24px;
+    font-weight: 700;
+}
+  
+.oldprice {
+    color: #818181;
+    text-decoration: line-through;
+}
+  
+.newprice {
+     color: orangered;
+}
+  
+.display-right button {
+    padding: 20px 40px;
+    width: 200px;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    background-color: orangered;
+    margin-bottom: 40px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.display-right button:active {
+    background-color: aqua;
+    color: black;
+}
+
+.star {
+    color: goldenrod;
+}
+
+.rating p{
+    display: inline-block;
+}
+
+.display-img {
+    position: relative;
+    width: 440px;
+    height: 530px;
+}
+
+.display-img1 {
+    position: absolute;
+    min-width: 500px;
+    min-height: 400px;
+    right: -510px;
+    top: 0;
+    background-color: whitesmoke;
+    overflow: hidden;
+}
+
+.img22 {
+    width: 100%;
+    height: 100%;
+    min-width: 500px;
+    min-height: 400px;
+    mix-blend-mode: multiply;
+    scale: 1.20;
+}
+
+@media (max-width: 750px) {
+    .display-left {
+        gap: 8px;
+        flex-direction: column-reverse;
+        justify-items: center;
+    }
+
+    .img-list {
+        display: flex;
+        flex-direction: row;
+        gap: 2px;
+    }
+    .img-list img {
+        height: 70px;
+        width: 80px;
+    }
+
+    .main-img {
+        width: 400px;
+        height: 350px;
+    }
+
+    .display-right h1 {
+        font-size: 17px;
+        font-weight: 600;
+    }
+
+    .product-display {
+        padding-left: 10px;
+    }
+
+    .display-right rating {
+        font-size: 9px;
+    }
+
+    .prices {
+        display: flex;
+        margin: 20px 0px;
+        gap: 20px;
+        font-size: 17px;
+        font-weight: 500;
+    }
+
+    .display-right button {
+        padding: 20px 40px;
+        width: 180px;
+        font-size: 14px;
+        font-weight: 500;
+        color: white;
+        background-color: orangered;
+        margin-bottom: 40px;
+        
+    }
+
+    .display-img {
+        position: relative;
+        width: 440px;
+        height: 400px;
+    }
+
+    .display-img1 {
+        display: none;
+    }
+}

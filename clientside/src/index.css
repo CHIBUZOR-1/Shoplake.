@@ -1,0 +1,355 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.pnf {
+  display: flex;
+  min-height: 65vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.pnf-title {
+  font-size: 100px;
+  font-weight: 700;
+}
+
+.pnf-heading {
+  font-weight: normal;
+}
+
+.pnf-btn {
+  color: black;
+  border: 1px solid black;
+  text-decoration: none;
+  padding: 10px;
+  margin-top: 10px;
+}
+/* for register page*/
+.Register {
+  display: flex;
+  justify-content: center;
+  font-family: Roboto;
+  background-color: whitesmoke;
+  height: 150vh;
+ padding-top: 20px;
+ padding-bottom: 20px;
+}
+
+.Registration-container {
+  background-color: white;
+  border: 1px solid rgb(156, 142, 142);
+  border-radius: 10px;
+  padding-left: 25px;
+  margin-bottom: 20px;
+  width: 400px;
+  padding-bottom: 20px;
+}
+
+.signUp-fields label{
+  font-size: 20px;
+}
+
+.signUp-fields p{
+  font-size: 20px;
+}
+.signUp-fields button {
+  border-radius: 10px;
+  border-style: none;
+  background-color: orangered;
+  width: 96%;
+  height: 26px;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.signUp-fields input{
+  width: 95%;
+  border-radius: 5px;
+  outline: aquamarine;
+  border-style: none;
+  background-color: rgb(233, 226, 226);
+  height: 29px;
+  font-size: 19px;
+  font-family: Ariel;
+}
+
+
+
+
+
+.Sign-form button {
+  border-radius: 10px;
+  border-style: none;
+  background-color: orangered;
+  width: 96%;
+  height: 26px;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.Sign-form label{
+  font-size: 20px;
+
+}
+
+.Sign-form input {
+  width: 95%;
+  border-radius: 5px;
+  outline: none;
+  border-style: none;
+  background-color: rgb(233, 226, 226);
+  height: 29px;
+  font-size: 19px;
+  font-family: Ariel;
+}
+.forgot {
+  right: 0px;
+}
+
+/*Breadcrums*/
+.crum {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #110f0f;
+  font-size: 16px;
+  margin: 10px auto;
+  text-transform: capitalize;
+  padding-left: 30px;
+}
+
+
+/* for header profile section*/
+
+
+
+
+.load {
+  display: flex;
+  min-height: 65vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Admin sidebar*/
+
+.sidebar-options {
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sideoption {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid #a9a9a9;
+  border-right: o;
+  padding: 8px 10px;
+  border-radius: 3px 0px 0px 3px;
+  cursor: pointer;
+}
+
+.sideoption:active {
+  background-color: rgb(233, 210, 201);
+  border-color: rgb(219, 93, 47);
+}
+
+.addy {
+  position: fixed;
+  display: flex;
+  background-color: #f1afaf;
+  z-index: 1;
+  height: 100%;
+  width: 0;
+  left: 0;
+  top: 0;
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.addon {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: white;
+  height: 400px;
+  width: 400px;
+  opacity: 1;
+}
+
+/*all users table*/
+
+
+.epp {
+  margin-left: 20px;
+  font-style: bold;
+  font-weight: 500;
+}
+
+
+
+.table-format.title {
+  background-color: #3d3232;
+  color: aliceblue;
+}
+
+.ed {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ff4141;
+  z-index: 5;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  opacity: 0.5;
+}
+
+.all-goods {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 20px;
+  margin-right: 10px;
+}
+
+.dome-products {
+  width: 1103px;
+  background-color: #a9a9a9;
+  margin-left: 1px;
+}
+
+.all-goods button {
+  background-color: #ff4141;
+  padding: 10px;
+  border-style: none;
+  border-radius: 20px;
+  color: whitesmoke;
+  font-size: medium;
+  font-weight: 400;
+}
+
+.all-goods button:active {
+  background-color: aquamarine;
+  color: #3d3d3d;
+} 
+
+.all-prods {
+  padding-left: 20px;
+}
+
+
+
+/* for edit user*/
+.user_form {
+  background-color: white;
+}
+.user_form button {
+  border-radius: 10px;
+  border-style: none;
+  background-color: orangered;
+  width: 96%;
+  height: 26px;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+.user_form select {
+  padding: 10px;
+  width: 120px;
+  height: 50px;
+  font-size: 14px;
+  color: #7b7b7b;
+  border: 1px solid #7b7b7b8d;
+  border-radius: 4px;
+}
+.form-back {
+  background-color: whitesmoke;
+  margin-top: 20px;
+  border: 1px solid rgb(61, 55, 55);
+  border-radius: 15px;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: white;
+  padding-left: 20px;
+  font-size: 20px;
+}
+
+/* For edit product component*/
+.form-intro {
+  background-color: whitesmoke;
+  margin-top: 20px;
+  border: 1px solid rgb(61, 55, 55);
+  border-radius: 15px;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: white;
+  padding-left: 20px;
+  font-size: 20px;
+}
+.form_items {
+  width: 100%;
+  color: #7b7b7b;
+  font-size: 16px;
+}
+
+.form_items input {
+  box-sizing: border-box;
+  width: 96%;
+  height: 40px;
+  border-radius: 4px;
+  padding-left: 15px;
+  border: 1px solid #c3c3c3;
+  outline: none;
+  color: #7b7b7b;
+  font-family: 'Roboto';
+  font-size: 14px;
+}
+
+.form_items button {
+  margin-top: 7px;
+  width: 100%;
+
+}
+
+
+/*PlaceOrder*/
+
+.content {
+  margin: 0px auto;
+  padding-bottom: 10px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.scrollbar::-webkit-scrollbar {
+  height: 8px;
+  opacity: 0.5;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  background: #d3d1d1;
+  border-radius: 10px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  opacity: 0.5;
+  background: #5a5a5a;
+  border-radius: 10px;
+}
+
+

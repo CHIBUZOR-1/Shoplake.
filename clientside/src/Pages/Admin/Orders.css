@@ -1,0 +1,52 @@
+
+.eors {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr;
+    align-items: start;
+    gap: 20px;
+    border: 1px solid #454545;
+    padding: 20px;
+    font-size: 14px;
+    color: #505050;
+
+}
+
+.o-p, .oname {
+    font-weight: 600;
+}
+
+.oadd {
+    margin-bottom: 6px;
+}
+
+.eors select {
+    margin-top: 5px;
+    background-color: white;
+    border: 1px solid orangered;
+    border-radius: 4px;
+    width: max(1ovw, 120px);
+    padding: 10px;
+    outline: none;
+}
+
+.oname {
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+@media (max-width: 1000px) {
+    .eors {
+        grid-template-columns: 0.5fr 2fr 1fr;
+        padding: 15px 8px;
+    }
+     .eors select {
+        padding: 5px;
+        font-size: 12px;
+     }
+
+     .eors .img {
+        font-size: 40px;
+        color: rgb(212, 186, 121);
+     }
+}

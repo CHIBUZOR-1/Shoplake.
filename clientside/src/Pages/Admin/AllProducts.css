@@ -1,0 +1,40 @@
+/* all products table*/
+table {
+    border: 1px solid lightgreen;
+    width: 80%;
+    align-items: center;
+}
+
+  tr {
+    color: #3d3232;
+    gap: 10px;
+    width: 5px;
+    border-right: #3d3232;
+  }
+  
+  th {
+    background-color: #3d3232;
+    color: white;
+    align-items: center;
+    border: 1px solid #3d3232;
+  }
+  tr td {
+    align-items: center;
+    border-bottom: 1px solid #0f0f0f;
+    width: 50px;
+    padding: 5px;
+    height: 30px;
+  }
+  
+  td img {
+    height: 40px;
+  }
+  
+  td button {
+    border-radius: 40px;
+    background-color: rgb(247, 206, 168);
+    text-align: center;
+    height: 15px;
+    width: 40px;
+    border-style: none;
+  }
