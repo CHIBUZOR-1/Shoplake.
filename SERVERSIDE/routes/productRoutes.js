@@ -30,7 +30,7 @@ productRouter.post('/product_details', getProductDetails);
 
 productRouter.post('/filter_categories', c_and_p_filter);
 
-productRouter.post('/category_products', cateProducts);
+productRouter.get('/category_products', cateProducts);
 
 productRouter.get('/product_categories', getProductCategories);
 

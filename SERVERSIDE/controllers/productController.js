@@ -233,7 +233,7 @@ const cardsByCartegory = async (req, res) => {
 }
 
 
-const cateProducts = async (req, res) => {
+/*const cateProducts = async (req, res) => {
     try {
         const {que} = req.body;
         const result = await productModel.find({sub_category: que});
@@ -249,7 +249,7 @@ const cateProducts = async (req, res) => {
             error: true
         });
     }
-}
+}*/
 
 
 // sub_category and price filter
@@ -275,6 +275,40 @@ const c_and_p_filter = async(req, res) => {
         })
     }
 }
+const cateProducts = async (req, res) => {
+    try {
+        const { que, price, brand } = req.query;
+        console.log(que)
+
+        // Initialize query to filter by sub_category
+        const query = { sub_category: que };
+
+        // Handle price filter
+        if (price && price.length) {
+            const [minPrice, maxPrice] = price.split('-').map(Number);
+            query.new_price = { $gte: minPrice, $lte: maxPrice };
+        }
+
+        // Handle brand filter
+        if (brand && brand.length > 0) {
+            query.brand_name = { $in: brand.split('--') };
+        }
+
+        // Fetch filtered products
+        const result = await productModel.find(query);
+        res.json({
+            result,
+            success: true,
+            error: false, // Correcting the `error` flag
+        });
+    } catch (error) {
+        console.log(error);
+        res.json({
+            success: false,
+            error: true
+        });
+    }
+};
 
 const removeProduct = async (req, res) => { 
     try {
