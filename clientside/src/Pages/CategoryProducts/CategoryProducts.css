@@ -1,13 +1,5 @@
 .dc {
     margin: 0px auto;
-    padding-bottom: 10px;
-    padding-left: 30px;
-    padding-right: 16px;
-}
-
-.suby {
-    display: grid;
-    grid-template-columns: 200px 1fr;
 }
 
 .ftr {
@@ -16,9 +8,4 @@
     overflow-y: scroll;
 }
 
-.sep3 {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px,1fr));
-    gap: 30px;
-    margin-top: 10px;
-}
+

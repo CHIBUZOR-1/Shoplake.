@@ -52,7 +52,7 @@ function App() {
           </Route>
         </Route>
         <Route path="/Register" element={<Registerpage/>}/>
-        <Route path='/product_category/:category' element={<CategoryProducts/>} />
+        <Route path='/product_category' element={<CategoryProducts/>} />
         <Route path="/cart" element={<CartPage/>}/>
         <Route path='/order' element={<PlaceOrder/>} />
         <Route path='/search' element={<Search/>} />

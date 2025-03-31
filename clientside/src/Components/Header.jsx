@@ -25,6 +25,7 @@ const Header = () => {
       setKw(searchfromUrl)
     }
   }, [location.search]);
+  console.log(location);
 
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside); 
@@ -60,15 +61,16 @@ const Header = () => {
     navigate('/');
   }
   return (
-    <div className='bg-black flex px-2 py-3 gap-1 items-center justify-between h-[75px] w-full z-20 fixed'>
+    <div className='bg-black flex max-sm:flex-col px-2 py-3 gap-2 items-center justify-between  w-full z-20 fixed'>
+      <div className='w-full flex justify-between'>
         <div className='logo'>
           <Link to='/' style={{ textDecoration: 'none', color: 'inherit'}}>
-            <h2 className='font-bold text-2xl'>SHOPLAKE</h2>
+            <h2 className='font-bold text-2xl max-md:text-xl'>SHOPLAKE</h2>
           </Link>
         </div>
         <form className='flex p-1 max-sm:hidden items-center rounded-full h-11 bg-slate-50 gap-1' onSubmit={handleSearch}>
           <input type='text' value={kw} placeholder='search lake...' onChange={(e)=> setKw(e.target.value)} className='p-1 w-full rounded-2xl outline-none bg-slate-50'/>
-          <button type='submit' className='flex w-9 h-9 flex-shrink-0 rounded-full items-center justify-center p-2 bg-orange-500'><BiSearchAlt className='text-white' /></button>
+          <button type='submit' disabled={!kw}  className='flex w-9 h-9 flex-shrink-0 rounded-full items-center justify-center p-2 bg-orange-500'><BiSearchAlt className='text-white' /></button>
         </form>
         <div className='nav-menu'>
             <li className='font-semibold max-md:hidden'><Link  to='/'>HOME</Link></li>
@@ -78,12 +80,12 @@ const Header = () => {
         <div className='log'>
            <Link className='flex items-center justify-center p-2 bg-orange-500 active:bg-orange-900 rounded-md' to='/Login'><button className='text-slate-50 max-sm:text-sm font-semibold'>LOGIN</button></Link>
         </div> :
-        <div ref={dropdownRef} onClick={handleOpen} className='flex max-sm:hidden relative items-center gap-3 rounded-md bg-orange-500 p-2'>
-            <div  className='text-slate-50 cursor-pointer rounded-md font-semibold flex items-center justify-center gap-1'>
+        <div ref={dropdownRef} onClick={handleOpen} className='flex max-sm:ml-auto relative items-center gap-3 rounded-md bg-orange-500 p-2'>
+            <div  className='text-slate-50 cursor-pointer max-sm:text-sm rounded-md font-semibold flex items-center justify-center gap-1'>
               <div><FiUserCheck /></div>{pass?.user?.name}<span className='lr'><IoIosArrowDown  className='text-slate-50 font-semibold'/></span>
             </div>
             {open ? 
-              <ul className='absolute flex flex-col gap-1 z-30 top-11 p-1 rounded-md w-36 shadow-md ease-in transition-all duration-500 bg-slate-50'>
+              <ul className='absolute flex flex-col gap-1 z-30 top-12 -right-3 max-sm:top-10 p-1 rounded-md w-36 shadow-md ease-in transition-all duration-500 bg-slate-50'>
                 {
                   pass?.user.role === "ADMIN" ?
                     <Link to={`/dashboard/admin/panel`}>
@@ -101,10 +103,15 @@ const Header = () => {
         }
         
         
-        <div className='relative flex justify-center items-center'>
+        <div className='relative max-sm:p-1 flex justify-center items-center'>
           <PiShoppingCartSimpleDuotone className='text-slate-50 cursor-pointer max-md:text-3xl text-4xl' onClick={()=>navigate('/cart')} />
           <p className='text-slate-50 p-1 rounded-full max-md:h-4 max-md:w-4 max-md:text-xs w-5 -right-1 bottom-5 h-5 flex items-center justify-center absolute bg-red-500'>{getTotalCartItems()}</p>
         </div>
+      </div>
+      <form className='flex p-1 sm:hidden w-full items-center rounded-full h-8 bg-slate-50 gap-1' onSubmit={handleSearch}>
+          <input type='text' value={kw} placeholder='search lake...' onChange={(e)=> setKw(e.target.value)} className='p-1 w-full text-sm rounded-2xl outline-none bg-slate-50'/>
+          <button type='submit' disabled={!kw} className='flex w-7 h-7 flex-shrink-0 rounded-full items-center justify-center p-1 bg-orange-500'><BiSearchAlt className='text-white' /></button>
+      </form>
     </div>
   )
 }

@@ -24,6 +24,12 @@ const Card1 = ({gt_category, heading}) => {
     const scrollLeft = ()=> {
         scrollElement.current.scrollLeft -= 400;
     }
+    const scrollRight1 = ()=> {
+        scrollElement.current.scrollLeft += 200;
+    }
+    const scrollLeft1 = ()=> {
+        scrollElement.current.scrollLeft -= 200;
+    }
 
     const getBySubCategory = async() => {
         setLoad(true);
@@ -35,14 +41,20 @@ const Card1 = ({gt_category, heading}) => {
         }
     }
   return (
-    <div className='card_top'>
+    <div className='card_top px-3 mb-2'>
         <p className='card_ps'>{heading}</p>
         <div className='relative'>
             <div className='flex items-center overflow-hidden gap-2' ref={scrollElement}>
-                    <button className='absolute flex items-center justify-center bg-slate-50 rounded-full p-1 h-9 w-9 left-0'onClick={scrollLeft}>
+                    <button className='absolute max-sm:hidden flex items-center justify-center bg-slate-50 rounded-full p-1 h-9 w-9 left-0'onClick={scrollLeft}>
                         <FaAngleLeft />
                     </button>
-                    <button className='absolute flex items-center justify-center bg-slate-50 rounded-full p-1 h-9 w-9 right-0' onClick={scrollRight}>
+                    <button className='absolute max-sm:hidden flex items-center justify-center bg-slate-50 rounded-full p-1 h-9 w-9 right-0' onClick={scrollRight}>
+                        <FaAngleRight />
+                    </button> 
+                    <button className='absolute sm:hidden flex items-center justify-center bg-slate-50 rounded-full p-1 h-9 w-9 left-0'onClick={scrollLeft}>
+                        <FaAngleLeft />
+                    </button>
+                    <button className='absolute sm:hidden flex items-center justify-center bg-slate-50 rounded-full p-1 h-9 w-9 right-0' onClick={scrollRight}>
                         <FaAngleRight />
                     </button> 
                 {
@@ -58,12 +70,12 @@ const Card1 = ({gt_category, heading}) => {
                         data.map((prod, i)=> {
                             return(
                                 <Link key={i}  to={`/product/${prod._id}`} >
-                                    <div className='w-52 flex flex-col items-center'>
+                                    <div className='w-52 max-sm:w-44 flex flex-col items-center'>
                                         <div className='h-full'>
-                                            <img className='h-[80%] object-scale-down' src={`/images/${prod.image}`} alt=''/>
+                                            <img className='h-[80%] max-sm:h-[50%] object-scale-down' src={`/images/${prod.image}`} alt=''/>
                                         </div>
                                         <div>
-                                            <p className='line-clamp-1'>{prod.name}</p>
+                                            <p className='line-clamp-1 max-sm:text-sm'>{prod?.product_name}</p>
                                         </div>
                                         <div className='flex items-center justify-center gap-2'>
                                             <div className='font-semibold max-sm:text-sm  text-red-500'> 

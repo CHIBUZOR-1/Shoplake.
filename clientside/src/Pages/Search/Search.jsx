@@ -22,7 +22,7 @@ const Search = () => {
     const [load, setLoad] = useState(false);
     const [goods, setGoods] = useState([]);
     const [more, setMore] = useState(true);
-    console.log(location);
+    
 
     useEffect(()=>{
        const urlParams = new URLSearchParams(location.search);
@@ -111,7 +111,6 @@ const Search = () => {
     const handleSortChange = (e) => {
         setDataz({ ...dataz, sort: e.target.value || 'desc' });
     };
-    console.log(dataz)
     
 
     
@@ -171,7 +170,11 @@ const Search = () => {
                 <div className='max-md:w-full w-full'>
                     <div className='flex max-md:justify-between'>
                       <p className='max-md:text-sm'>Search Results : {goods.length === 0? "No Products Found": `${goods.length} products found`}</p>  
-                      <button className='font-semibold md:hidden p-1 flex gap-1 items-center border border-green-400 rounded-md'>Filters <span><IoIosArrowDown  className='text-slate-500 font-semibold'/></span></button>
+                    </div>
+                    <div className='flex items-center mr-auto w-full gap-3 p-1'>
+                        <p className='font-semibold'>Filter By:</p>
+                        <button className='p-2 border rounded-md flex items-center gap-1 '>Brands <span><IoIosArrowDown  className='text-slate-500 font-semibold'/></span></button>
+                        <button className='p-2 border rounded-md flex items-center gap-1 '>Prices <span><IoIosArrowDown  className='text-slate-500 font-semibold'/></span></button>
                     </div>
                     
                     {

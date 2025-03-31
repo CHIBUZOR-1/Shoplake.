@@ -20,7 +20,7 @@ const Layout = ({children, title, description}) => {
         <title>{title}</title>
       </Helmet>
       <Header/>
-      <main style={{minHeight: "80vh", paddingTop: "80px"}}>
+      <main className='min-h-[80vh] pt-[80px] max-sm:pt-[108px]'>
         {children}
       </main>
       <Footer/>

@@ -22,7 +22,7 @@ const CategoryList = () => {
         {
           categories.map((cat, i) => {
             return(
-              <Link to={`/product_category/${cat.sub_category}`} style={{ textDecoration: 'none', color: 'inherit'}} key={i} className='cursor-pointer items-center flex flex-col justify-center'>
+              <Link to={`/product_category?que=${cat.sub_category}`} style={{ textDecoration: 'none', color: 'inherit'}} key={i} className='cursor-pointer items-center flex flex-col justify-center'>
                 <div className='h-12 items-center justify-center w-12 p-4 bg-slate-100 rounded-full'>
                   <img src={`/images/${cat.image}`} alt='' className='cat_imgdome'/>
                 </div>

@@ -40,7 +40,7 @@ const Bannerflex = () => {
     }, [currentImg])
   return (
     <div className='flex max-md:px-2 px-3 '>
-        <div className='flexy1 rounded-lg shadow-md'>
+        <div className='flexy1 max-sm:h-[150px] h-[280px] rounded-lg shadow-md'>
             <div className='flex absolute h-full w-full z-10 items-center'>
                 <div className='flex justify-between w-full'>
                     <button onClick={prevFlex} className='rounded-full flex justify-center p-1 items-center h-9 w-9 bg-slate-50'>
@@ -57,7 +57,7 @@ const Bannerflex = () => {
                 flexImages.map((images, i) => {
                     return (
                     <div className='w-full min-w-full h-full transition-all' key={images + 1} style={{transform: `translateX(-${currentImg * 100}%)`}}>
-                        <img src={images} alt=""  className='w-full h-full object-fill'/>
+                        <img src={images} alt=""  className='w-full h-full inset-0 object-fill'/>
                     </div>
                     )
                 })
