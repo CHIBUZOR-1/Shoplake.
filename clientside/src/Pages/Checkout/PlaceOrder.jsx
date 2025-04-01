@@ -24,6 +24,11 @@ const PlaceOrder = () => {
         phone: ""
     });
 
+    useEffect(()=> {
+        getToken()
+        // eslint-disable-next-line
+    }, [pass?.token]);
+
     const getToken = async() => {
         try {
             const {data} = await axios.get('/api/order/braintree/token');
@@ -34,12 +39,6 @@ const PlaceOrder = () => {
     }
 
     
-
-
-    useEffect(()=> {
-        getToken()
-        // eslint-disable-next-line
-    }, [pass?.token]);
 
     const handleChange = ({target}) => {
         const {name, value} = target;
@@ -71,7 +70,7 @@ const PlaceOrder = () => {
                 address: datas,
                 amount: getTotalCartAmount() + 500
             }
-            const {data} = await axios.post('/api/order/braintree/payment', orderData);
+            const { data } = await axios.post('/api/order/braintree/payment', orderData);
             navigate('/dashboard/user/orders')
             toast.success('Payment Successfull');
         } catch (error) {
@@ -82,7 +81,7 @@ const PlaceOrder = () => {
   return (
     <Layout title={'Order-Page'}>
         <div className='content'>
-            <form className='po' onSubmit={handlePayment}>
+            <form className='po max-md:flex-col' onSubmit={handlePayment}>
                 <div className='po-left'>
                     <p className='heading'>Delivery Information</p>
                     <div className='multi'>
@@ -126,7 +125,7 @@ const PlaceOrder = () => {
                                 !clientToken || !pass ? ('') : (
                                     <>
                                      <DropIn ref={dropRef} options={{authorization: clientToken}} onInstance={(instance) => setInstance(instance)}/>
-                                     <button type='submit' disabled={!pass.token}>MAKE PAYMENT</button> 
+                                     <button type='submit' className='bg-orange-500 p-2 rounded-md text-slate-50 font-semibold active:bg-cyan-400' disabled={!pass.token}>MAKE PAYMENT</button> 
                                     </>
                                 )
                             }

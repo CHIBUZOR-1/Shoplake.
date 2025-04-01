@@ -1,10 +1,10 @@
 # INTRODUCTION TO SHOPLAKE
-SHOPLAKE is a fullstack E-commerce website built using MERN(MongoDB, Express.js, React, Node.js) stack. It is designed for  online electronic retail, allowing users to browse and shop for various electronics products. The purpose of this project is to showcase my frontend and backend skills using MERN stack. This site includes lots of functionality like Admin for product stock and management and User dashboard and braintree payment gateway(sandbox) with credit card.
+SHOPLAKE is a fully responsive fullstack E-commerce website built using MERN(MongoDB, Express.js, React, Node.js) stack and also includes real-time customer support functionality using Tawk.to, allowing seamless interaction with users for enhanced customer experience. It is designed for  online electronic retail, allowing users to browse and shop for various electronics products. The purpose of this project is to showcase my frontend and backend skills using MERN stack. This site includes lots of functionality like Admin for product stock and management and User dashboard and braintree payment gateway(sandbox) with credit card.
 
 ## UI Snapshots
 
 ### Hompage
-![Landing Page](./clientside/src/Components/Assets/SL_homepage.PNG)
+![Landing Page](./clientside/src/Components/Assets/NShome.PNG)
 
 ### Cart Page
 ![Cart Page](./clientside/src/Components/Assets/SL_cartpage.PNG)
@@ -16,13 +16,13 @@ SHOPLAKE is a fullstack E-commerce website built using MERN(MongoDB, Express.js,
 ![Checkout Page](./clientside/src/Components/Assets/SL_checkoutpage.PNG)
 
 ### Login Page
-![Login Page](./clientside/src/Components/Assets/SL_loginpage.PNG)
+![Login Page](./clientside/src/Components/Assets/NSlogin.PNG)
 
 ### User Orders Page
-![User Orders](./clientside/src/Components/Assets/SL1_userorder.PNG)
+![User Orders](./clientside/src/Components/Assets/NSuo.PNG)
 
 ### Admin Dashboard Page
-![Admin Dashboard](./clientside/src/Components/Assets/SL1_adminorders.PNG)
+![Admin Dashboard](./clientside/src/Components/Assets/NSpanel.PNG)
 
 
 

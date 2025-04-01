@@ -2,10 +2,11 @@ import React from 'react'
 import { AiOutlineFacebook } from "react-icons/ai";
 import { BsTwitterX } from "react-icons/bs";
 import { FaLinkedin } from "react-icons/fa";
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 const Footer = () => {
+  const location = useLocation();
   return (
-    <div className='flex flex-col text-slate-50 gap-2 bg-stone-800 p-4'>
+    <div className={`flex ${(location.pathname === '/Login' || location.pathname === '/Register' || location.pathname === '/reset-password') && 'hidden'} flex-col text-slate-50 gap-2 bg-stone-800 p-4`}>
       <div className='flex gap-1 max-md:flex-col max-md:gap-2'>
         <div className='flex flex-col gap-1'>
           <h2 className='text-green-400 font-semibold'>SHOPLAKE.</h2>

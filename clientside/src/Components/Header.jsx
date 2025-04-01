@@ -16,7 +16,7 @@ const Header = () => {
   const {pass, setPass, getTotalCartItems } = usePass();
   const [open, setOpen] = useState(false);
   const [kw, setKw]= useState('');
-  const dropdownRef = useRef(null); 
+  const dropdownRef = useRef(null);
 
   useEffect(()=> {
     const urlParams = new URLSearchParams(location.search);
@@ -25,7 +25,6 @@ const Header = () => {
       setKw(searchfromUrl)
     }
   }, [location.search]);
-  console.log(location);
 
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside); 
@@ -61,7 +60,7 @@ const Header = () => {
     navigate('/');
   }
   return (
-    <div className='bg-black flex max-sm:flex-col px-2 py-3 gap-2 items-center justify-between  w-full z-20 fixed'>
+    <div className={`bg-black ${(location.pathname === '/Login' || location.pathname === '/Register' || location.pathname === '/reset-password') && 'hidden'} flex max-sm:flex-col px-2 py-3 gap-2 items-center justify-between  w-full z-20 fixed`}>
       <div className='w-full flex justify-between'>
         <div className='logo'>
           <Link to='/' style={{ textDecoration: 'none', color: 'inherit'}}>

@@ -51,10 +51,10 @@ const Card1 = ({gt_category, heading}) => {
                     <button className='absolute max-sm:hidden flex items-center justify-center bg-slate-50 rounded-full p-1 h-9 w-9 right-0' onClick={scrollRight}>
                         <FaAngleRight />
                     </button> 
-                    <button className='absolute sm:hidden flex items-center justify-center bg-slate-50 rounded-full p-1 h-9 w-9 left-0'onClick={scrollLeft}>
+                    <button className='absolute sm:hidden flex items-center justify-center bg-slate-50 rounded-full p-1 h-9 w-9 left-0'onClick={scrollLeft1}>
                         <FaAngleLeft />
                     </button>
-                    <button className='absolute sm:hidden flex items-center justify-center bg-slate-50 rounded-full p-1 h-9 w-9 right-0' onClick={scrollRight}>
+                    <button className='absolute sm:hidden flex items-center justify-center bg-slate-50 rounded-full p-1 h-9 w-9 right-0' onClick={scrollRight1}>
                         <FaAngleRight />
                     </button> 
                 {

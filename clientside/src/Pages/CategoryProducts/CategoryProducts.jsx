@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Layout from '../../Components/Layout'
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom'
 import { Checkbox, Radio } from 'antd';
@@ -15,13 +15,14 @@ const CategoryProducts = () => {
     const location = useLocation();
     const [list, setList] = useState([]);
     const [load, setLoad] = useState(false);
+    const [open, setOpen] = useState(false);
+    const [open1, setOpen1] = useState(false);
     const [dataz, setDataz] = useState({
             ct: '',
             sort: 'desc',
             checked: [],
             radio: ''
     });
-    console.log(location);
     useEffect(()=>{
            const urlParams = new URLSearchParams(location.search);
             const searchFromUrl = urlParams.get('que');
@@ -77,6 +78,34 @@ const CategoryProducts = () => {
         const searchQuery = urlParams.toString();
         navigate(`/product_category?${searchQuery}`);
     };
+    const useBrandFilter = () => {
+        const urlParams = new URLSearchParams(location.search);
+        const searchFromUrl = urlParams.get('que');
+        urlParams.set('que', searchFromUrl);
+        urlParams.set('sort', dataz.sort);
+        dataz.checked.length > 0 && urlParams.set('brand', dataz.checked.join('--')); // Join brands with --
+        const searchQuery = urlParams.toString();
+        setOpen(false);
+        navigate(`/product_category?${searchQuery}`);
+    };
+    const usePriceFilter = () => {
+        const urlParams = new URLSearchParams(location.search);
+        const searchFromUrl = urlParams.get('que');
+        urlParams.set('que', searchFromUrl);
+        urlParams.set('sort', dataz.sort);
+        dataz?.radio?.length > 0 && urlParams.set('price', dataz.radio); // Set price as a range
+        const searchQuery = urlParams.toString();
+        setOpen1(false);
+        navigate(`/product_category?${searchQuery}`);
+    };
+    const handleOpen = () => {
+        setOpen1(false);
+        setOpen(prev => !prev);
+      }
+      const handleOpen1 = () => {
+        setOpen(false);
+        setOpen1(prev => !prev);
+      }
     const resetFilters = () => {
         const urlParams = new URLSearchParams(location.search);
         const searchFromUrl = urlParams.get('que');
@@ -86,6 +115,34 @@ const CategoryProducts = () => {
             radio: ''
         });
         navigate(`/product_category?que=${searchFromUrl}`);
+    };
+    const resetBrandFilters = () => {
+        const urlParams = new URLSearchParams(location.search);
+        urlParams.get('que');
+        urlParams.get('price');
+        // Remove the brand filter
+        urlParams.delete('brand'); // This removes the 'brand' parameter
+        const searchQuery = urlParams.toString();
+        setDataz((prevState) => ({
+            ...prevState,
+            checked: [], // Reset brand filter
+        }));
+        setOpen(false);
+        navigate(`/product_category?${searchQuery}`);
+    };
+    const resetPriceFilters = () => {
+        const urlParams = new URLSearchParams(location.search);
+        urlParams.get('que');
+        urlParams.get('brand');
+        // Remove the brand filter
+        urlParams.delete('price'); // This removes the 'brand' parameter
+        const searchQuery = urlParams.toString();
+        setDataz((prevState) => ({
+            ...prevState,
+            radio: '', // Reset brand filter
+        }));
+        setOpen1(false);
+        navigate(`/product_category?${searchQuery}`);
     };
   return (
     <Layout>
@@ -141,11 +198,62 @@ const CategoryProducts = () => {
                     </div>
                 </div>
                 <div className='max-md:w-full w-full'>
-                    <p className='sr'> Results : {list.length === 0? "No Products Found": `(${list.length} products found)`}</p>
-                    <div className='flex items-center mr-auto w-full gap-3 p-1'>
+                    <p className='sr px-1'> Results : {list.length === 0? "No Products Found": `(${list.length} products found)`}</p>
+                    <div className='flex md:hidden items-center mr-auto w-full gap-3 p-1'>
                         <p className='font-semibold'>Filter By:</p>
-                        <button className='p-2 border rounded-md flex items-center'>Brands <span><IoIosArrowDown  className='text-slate-500 font-semibold'/></span></button>
-                        <button className='p-2 border rounded-md flex items-center'>Prices <span><IoIosArrowDown  className='text-slate-500 font-semibold'/></span></button>
+                        <div  className='flex items-center justify-center'>
+                            <button onClick={handleOpen} className='p-2 border rounded-md flex items-center gap-1 '>Brands <span><IoIosArrowDown  className='text-slate-500 font-semibold'/></span></button>
+                            {
+                                open && (
+                                    <div className='flex absolute flex-col gap-1 z-10 top-[155px] border max-sm:top-[175px] p-1 shadow-md ease-in transition-all duration-500 bg-white rounded-md w-44 '>
+                                      <div className=' flex h-48 overflow-y-auto scrollbar1  flex-col gap-2 '>
+                                            {
+                                                brands.map((b)=> {
+                                                    return (
+                                                    <Checkbox key={b.id} checked={dataz.checked.includes(b.label)} onChange={(e)=>  handleCheckboxChange(e.target.checked, b.label)}>
+                                                        {b.label}
+                                                    </Checkbox>
+                                                    )
+                                                })
+                                            }
+                                        </div>
+                                        <div className='flex flex-col gap-1 py-1 px-1'>
+                                            <button className='bdang' onClick={useBrandFilter}>Apply</button>
+                                            <button onClick={resetBrandFilters} className='bdang'>Clear all</button>
+                                        </div> 
+                                    </div>
+                                    
+                                )
+                                
+                            }
+                        </div>
+                        <div  className='flex items-center justify-center'>
+                            <button onClick={handleOpen1} className='p-2 border rounded-md flex items-center gap-1 '>Prices <span><IoIosArrowDown  className='text-slate-500 font-semibold'/></span></button>
+                            {
+                                open1 && (
+                                    <div className='flex absolute flex-col gap-1 z-10 top-[155px] border max-sm:top-[175px] p-1 shadow-md ease-in transition-all duration-500 bg-white rounded-md w-44 '>
+                                        <div className=' flex  gap-2 '>
+                                            <Radio.Group onChange={handleRadioChange} value={dataz.radio}>
+                                                {
+                                                    prices.map((t)=> {
+                                                        return (
+                                                            <div key={t.id}>
+                                                                <Radio value={`${t.array[0]}-${t.array[1]}`}>{t.name}</Radio>
+                                                            </div>
+                                                        )
+                                                    })
+                                                }
+                                            </Radio.Group>
+                                        </div>
+                                        <div className='flex flex-col gap-1 py-1 px-1'>
+                                            <button className='bdang' onClick={usePriceFilter}>Apply</button>
+                                            <button onClick={resetPriceFilters} className='bdang'>Clear all</button>
+                                        </div> 
+                                    </div>
+                                )
+                                
+                            }
+                        </div>
                     </div>
                     {
                         load && (

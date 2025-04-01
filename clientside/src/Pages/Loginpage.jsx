@@ -44,7 +44,10 @@ const Loginpage = () => {
     }
   return (
     <Layout title={'SHOPLAKE Login'}>
-        <div className=' flex justify-center items-center'>
+        <div className=' flex flex-col gap-2 justify-center items-center'>
+            <div className='w-full flex items-center justify-center '>
+                <h2 className='text-2xl font-semibold border p-1 px-1 text-green-600'>SHOPLAKE</h2>
+            </div>
             <div className='border p-3 flex flex-col items-center max-md:w-[80%] justify-center rounded-md md:w-[50%]'>
                 <h2 className='font-bold text-2xl'>LOGIN</h2>
                 <form className='flex flex-col w-full justify-center gap-2' onSubmit={handleSubmit}>
@@ -63,10 +66,10 @@ const Loginpage = () => {
                         <input name='password' value={data.password} className='p-1 border border-slate-300 outline-lime-300 w-full rounded-md' type='password' id='password' onChange={handleChange} />
                     </div>
                     <div className='ml-auto'>
-                        <Link className='text-blue-500 hover:underline' to={'/Reset Password'}><p>Forgot Password?</p></Link>
+                        <Link className='text-blue-500 hover:underline' to={'/reset-password'}><p>Forgot Password?</p></Link>
                     </div>
                     <div className='w-full flex items-center justify-center p-1'>
-                        <button className='p-2 bg-orange-500 rounded-md w-[70%] text-white font-semibold' type='submit'>Login</button>
+                        <button className='p-2 bg-orange-500 active:bg-orange-800 rounded-md w-[70%] text-white font-semibold' type='submit'>Login</button>
                     </div>
                     <div className='flex items-center justify-center'>
                         <p className='text-slate-400'>Don't have an account? <span className='text-blue-500'><Link to='/Register' style={{ textDecoration: 'none '}}>Register</Link></span></p>

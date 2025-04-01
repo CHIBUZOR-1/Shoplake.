@@ -6,14 +6,18 @@ import './CartPage.css'
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 const CartPage = () => {
-  const {CartItems, list, removeFromCart, getTotalCartAmount } = usePass();
+  const {CartItems, list, removeFromCart, getTotalCartAmount, getTotalCartItems } = usePass();
+  const q = getTotalCartItems();
  
   return (
     <Layout title={"Cart-Page SHOPLAKE"}>
-        <div className='cart-items'>
+        <div className='flex m-auto p-4'>
           <div className="cart-title">
-            <div className='w-full max-md:overflow-x-auto scrollbar'>
-              <table className='cart-table'>
+            <div className={`${ q > 0 && 'hidden'} flex w-full items-center justify-center p-1`}>
+              <p className='text-3xl font-semibold text-slate-400'>No Items In Cart</p>
+            </div>
+            <div className={`${q === 0 && 'hidden'} w-full max-md:overflow-x-auto scrollbar`}>
+              <table className={`cart-table`}>
                 <thead>
                   <tr className='tr'>
                     <td>Products</td>
@@ -35,7 +39,7 @@ const CartPage = () => {
                             <td>${p?.new_price.toLocaleString()}</td>
                             <td>{CartItems[p._id]}</td>
                             <td>${(p?.new_price * CartItems[p._id]).toLocaleString()}</td>
-                            <td><button className='flex items-center justify-center' onClick={()=>{removeFromCart(p._id); toast.success('Removed from Cart')}}><AiTwotoneDelete /></button></td>
+                            <td ><div className='flex justify-center p-1'><button className='flex items-center justify-center' onClick={()=>{removeFromCart(p._id); toast.success('Removed from Cart')}}><AiTwotoneDelete /></button></div></td>
                           </tr>
                         )
                       }
@@ -66,7 +70,7 @@ const CartPage = () => {
                   </div>
                   <hr/>
                 </div>
-                <Link to="/order"><button>CHECKOUT</button></Link>
+                <Link to="/order"><button className={`${q === 0 && "bg-orange-200 text-slate-500 active:bg-orange-200"} w-[40%] font-semibold text-slate-50  bg-orange-500 p-2 rounded-md active:bg-cyan-300`} disabled={q === 0}>CHECKOUT</button></Link>
               </div>
               <div className='promo-section'>
                 <div>

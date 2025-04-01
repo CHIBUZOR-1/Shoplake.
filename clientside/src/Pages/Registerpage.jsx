@@ -31,8 +31,6 @@ const Registerpage = () => {
                 toast.success(response.data.message);
                 navigate('/Login');   
             }
-            console.log('response', response.data);
-            console.log('data',data);
 
             if(!response.data.success) {
                 toast.error(response.data.message);
@@ -46,8 +44,9 @@ const Registerpage = () => {
 
   return (
     <Layout title={'SHOPLAKE Register'}>
-      <div className='w-full h-full flex p-2 items-center justify-center'>
-            <div className='w-[70%] border border-slate-200 rounded-md'>
+      <div className='w-full flex-col gap-2 h-full flex p-2 items-center justify-center'>
+             
+            <div className='w-[70%] max-sm:w-[90%] border border-slate-200 rounded-md'>
                 <h1 className='text-2xl font-semibold text-center'>Register</h1>
                 <form className='flex flex-col gap-2 p-2 justify-center' onSubmit={handleSubmit}>
                     <div className='flex gap-1 w-full justify-center items-center'>

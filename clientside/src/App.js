@@ -59,7 +59,7 @@ function App() {
         <Route path="/product" element={<Productpage/>}>
             <Route path=':id' element={<Productpage/>} />
         </Route>
-        <Route path="/Reset Password" element={<Forgotpassword/>}/>
+        <Route path="/reset-password" element={<Forgotpassword/>}/>
         <Route path="/*" element={<PageNotFound/>}/>
 
       </Routes>

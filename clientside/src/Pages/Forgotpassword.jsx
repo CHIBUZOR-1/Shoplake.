@@ -45,17 +45,20 @@ const handleSubmit = async (e) => {
 }
 
   return (
-    <Layout title={"SHOPLAKE- Password reset"}>
-        <div className='logins'>
-            <div className='login-container'>
-                <h2>RESET PASSWORD</h2>
-                <form className='Sign-form' onSubmit={handleSubmit}>
+    <Layout title={"SHOPLAKE- Password Reset"}>
+        <div className='flex flex-col gap-2 items-center justify-center'>
+            <div className='w-full flex items-center justify-center '>
+                <h2 className='text-2xl font-semibold border p-1 px-1 text-green-600'>SHOPLAKE</h2>
+            </div>
+            <div className='border p-3 flex flex-col items-center max-md:w-[80%] justify-center rounded-md md:w-[50%]'>
+                <h2 className='font-bold text-2xl'>RESET PASSWORD</h2>
+                <form className='flex flex-col w-full justify-center gap-2' onSubmit={handleSubmit}>
                     <div className='ms'>
                         <label htmlFor='email'>
                             <strong>Email</strong>
                         </label>
                         <br />
-                        <input name='email' value={data.email} type='email' placeholder='input Email'id='email' onChange={handleChange} />
+                        <input name='email' className='p-1 border border-slate-300 w-full outline-lime-300 rounded-md' value={data.email} type='email' id='email' onChange={handleChange} />
                     </div>
                     <br />
                     <div>
@@ -63,7 +66,7 @@ const handleSubmit = async (e) => {
                             <strong>Your Favourite Word</strong>
                         </label>
                         <br />
-                        <input name='answer' value={data.answer} type='text' placeholder='input favorite word' id='answer' onChange={handleChange} required/>
+                        <input name='answer' className='p-1 border border-slate-300 w-full outline-lime-300 rounded-md' value={data.answer} type='text'  id='answer' onChange={handleChange} required/>
                     </div>
                     <br />
                     <div className='ms'>
@@ -71,7 +74,7 @@ const handleSubmit = async (e) => {
                             <strong>New Password</strong>
                         </label>
                         <br />
-                        <input name='newPassword' value={data.newPassword}type='password' placeholder='input Password'id='newPassword' onChange={handleChange} />
+                        <input name='newPassword' className='p-1 border border-slate-300 w-full outline-lime-300 rounded-md' value={data.newPassword}type='password' id='newPassword' onChange={handleChange} />
                     </div>
                     <br />
                     <div className='ms'>
@@ -79,11 +82,11 @@ const handleSubmit = async (e) => {
                             <strong>Confirm New Password</strong>
                         </label>
                         <br />
-                        <input name='confirmNewPassword' value={data.confirmNewPassword}type='password' placeholder='input Password'id='confirmNewPassword' onChange={handleChange} />
+                        <input name='confirmNewPassword' className='p-1 border border-slate-300 w-full outline-lime-300 rounded-md' value={data.confirmNewPassword}type='password' id='confirmNewPassword' onChange={handleChange} />
                     </div>
                     <br />
-                    <div>
-                        <button type='submit'>RESET</button>
+                    <div className='w-full flex items-center justify-center p-1'>
+                        <button className='p-2 bg-orange-500 active:bg-orange-800 rounded-md w-[70%] text-white font-semibold' type='submit'>RESET</button>
                     </div>
                 </form>
                 

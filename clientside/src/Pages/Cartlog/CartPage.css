@@ -22,20 +22,7 @@
     margin: 10px 0px;
 }
 
-.summary button {
-    border: none;
-    color: white;
-    background-color: orangered;
-    width: max(15vw,200px);
-    padding: 12px 0px;
-    border-radius: 4px;
-    cursor: pointer;
-}
 
-.summary button:active {
-    background-color: aqua;
-    color: black;
-}
 
 .promo-section {
     flex: 1;
@@ -73,13 +60,7 @@
     background-color: blue;
     color: white;
 }
-.cart-items {
-    display: flex;
-    margin: 0px auto;
-    padding-bottom: 10px;
-    padding-left: 30px;
-    padding-right: 30px;
-  }
+
   
   .cart-title {
     background-color: white;
