@@ -1,7 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
-const dotenv = require("dotenv").config();
+const dotenv = require("dotenv");
 const helmet = require('helmet');
 const bodyParser = require('body-parser');
 const app = express();
@@ -13,8 +13,9 @@ const userRouter = require('./routes/authRoute');
 const cartRouter = require('./routes/CartRoute');
 const orderRouter = require('./routes/OrderRoute');
 
+dotenv.config();
 
-const PORT = process.env.LOCALHOST;
+
 app.use(cors());
 app.use(morgan('dev'));
 app.use(helmet());
@@ -47,6 +48,8 @@ app.use((req, res, next) => {
         }
     })(req, res, next);
 });
+
+const PORT = process.env.LOCALHOST || 5500;
 
 connectDB();
 
