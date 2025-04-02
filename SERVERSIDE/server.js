@@ -34,8 +34,8 @@ app.use((req, res, next) => {
         contentSecurityPolicy: {
             directives: {
                 defaultSrc: ["'self'"],
-                scriptSrc: ["'self'", "'sha256-8nZ3qgB1FzrIdgL2NqwY9m7KP0vmJv6WxAxV8pHZVUE='",  "https://www.gstatic.com", "https://www.googleapis.com", "https://apis.google.com", "*.tawk.to"],
-                styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "*.tawk.to"],
+                scriptSrc: ["'self'", "https://embed.tawk.to",   "https://www.gstatic.com", "https://www.googleapis.com", "https://apis.google.com"],
+                styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
                 imgSrc: ["'self'", "data:", "https://www.gstatic.com", "blob:", "https://as2.ftcdn.net", "https://res.cloudinary.com", "https://cdn.jsdelivr.net", "*.tawk.to"],
                 connectSrc: ["'self'", "https://www.googleapis.com", "https://firebasestorage.googleapis.com", "https://identitytoolkit.googleapis.com", "blob:", "https://res.cloudinary.com", "*.tawk.to"],
                 fontSrc: ["'self'", "https://fonts.gstatic.com", "*.tawk.to"],
