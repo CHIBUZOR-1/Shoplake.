@@ -34,7 +34,7 @@ app.use((req, res, next) => {
         contentSecurityPolicy: {
             directives: {
                 defaultSrc: ["'self'"],
-                scriptSrc: ["'self'", `'nonce-${res.locals.nonce}'`, "'sha256-b57f26007a21e9e39bdc576d14eb693481b75edbfa74f3cf28df32abd018e40c'", "https://www.gstatic.com", "https://www.googleapis.com", "https://apis.google.com", "*.tawk.to"],
+                scriptSrc: ["'self'", "'sha256-5bee1d810f775e6f60c6d09d830137dde2026240df87b4b46819118c0ac0af71'",  "https://www.gstatic.com", "https://www.googleapis.com", "https://apis.google.com", "*.tawk.to"],
                 styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "*.tawk.to"],
                 imgSrc: ["'self'", "data:", "https://www.gstatic.com", "blob:", "https://as2.ftcdn.net", "https://res.cloudinary.com", "https://cdn.jsdelivr.net", "*.tawk.to"],
                 connectSrc: ["'self'", "https://www.googleapis.com", "https://firebasestorage.googleapis.com", "https://identitytoolkit.googleapis.com", "blob:", "https://res.cloudinary.com", "*.tawk.to"],
@@ -63,31 +63,7 @@ app.use('/api/order', orderRouter);
 app.use(express.static(path.join(__dirname, '../clientside/build')));
 
 app.get('*', (req, res)=> {
-    const nonce = res.locals.nonce; // Get nonce for CSP
-
-    // Path to React's built `index.html`
-    const indexHtmlPath = path.resolve(__dirname, '../clientside/build', 'index.html');
-
-    // Read and modify the HTML dynamically
-    fs.readFile(indexHtmlPath, 'utf8', (err, html) => {
-        if (err) {
-            console.error('Error reading index.html:', err);
-            return res.status(500).send('Internal server error');
-        }
-
-        // Inject nonce into CSP meta tag and Tawk.to `<script>` tag
-        const updatedHtml = html
-            .replace(
-                '<head>',
-                `<head><meta http-equiv="Content-Security-Policy" content="script-src 'self' 'nonce-${nonce}' 'sha256-AbC123xYz456kLm...' https://www.gstatic.com https://apis.google.com *.tawk.to;">`
-            )
-            .replace(
-                '<script type="text/javascript">',
-                `<script nonce="${nonce}" type="text/javascript">`
-            );
-
-        res.send(updatedHtml); // Serve updated HTML
-    });
+    res.sendFile(path.resolve(__dirname, '../clientside/build', 'index.html'))
 })
 
 app.get('/', (req, res) => {
