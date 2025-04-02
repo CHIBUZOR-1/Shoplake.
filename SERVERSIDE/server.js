@@ -37,7 +37,7 @@ app.use((req, res, next) => {
                 scriptSrc: ["'self'", "https://embed.tawk.to", "https://cdn.jsdelivr.net",   "https://www.gstatic.com", "https://www.googleapis.com", "https://apis.google.com"],
                 styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "*.tawk.to"],
                 imgSrc: ["'self'", "data:", "https://www.gstatic.com", "blob:", "https://as2.ftcdn.net", "https://res.cloudinary.com", "https://cdn.jsdelivr.net", "*.tawk.to"],
-                connectSrc: ["'self'", "https://www.googleapis.com", "https://firebasestorage.googleapis.com", "https://identitytoolkit.googleapis.com", "blob:", "https://res.cloudinary.com", "*.tawk.to", "wss://*.tawk.to" ],
+                connectSrc: ["'self'", "https://www.googleapis.com", "https://firebasestorage.googleapis.com", "https://payments.sandbox.braintree-api.com", "https://api.sandbox.braintreegateway.com", "https://identitytoolkit.googleapis.com", "blob:", "https://res.cloudinary.com", "*.tawk.to", "wss://*.tawk.to" ],
                 fontSrc: ["'self'", "https://fonts.gstatic.com", "*.tawk.to"],
                 objectSrc: ["'none'"],
                 mediaSrc: ["'self'", "blob:", "https://res.cloudinary.com", "*.tawk.to"],
