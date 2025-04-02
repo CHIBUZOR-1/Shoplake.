@@ -35,13 +35,13 @@ app.use((req, res, next) => {
             directives: {
                 defaultSrc: ["'self'"],
                 scriptSrc: ["'self'", "https://embed.tawk.to",   "https://www.gstatic.com", "https://www.googleapis.com", "https://apis.google.com"],
-                styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
+                styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "*.tawk.to"],
                 imgSrc: ["'self'", "data:", "https://www.gstatic.com", "blob:", "https://as2.ftcdn.net", "https://res.cloudinary.com", "https://cdn.jsdelivr.net", "*.tawk.to"],
-                connectSrc: ["'self'", "https://www.googleapis.com", "https://firebasestorage.googleapis.com", "https://identitytoolkit.googleapis.com", "blob:", "https://res.cloudinary.com", "*.tawk.to"],
+                connectSrc: ["'self'", "https://www.googleapis.com", "https://firebasestorage.googleapis.com", "https://identitytoolkit.googleapis.com", "blob:", "https://res.cloudinary.com", "*.tawk.to", "wss://*.tawk.to" ],
                 fontSrc: ["'self'", "https://fonts.gstatic.com", "*.tawk.to"],
                 objectSrc: ["'none'"],
                 mediaSrc: ["'self'", "blob:", "https://res.cloudinary.com", "*.tawk.to"],
-                frameSrc: ["'self'", "https://accounts.google.com"],
+                frameSrc: ["'self'", "https://accounts.google.com", "*.tawk.to"],
                 baseUri: ["'self'"],
                 formAction: ["'self'"],
             }
