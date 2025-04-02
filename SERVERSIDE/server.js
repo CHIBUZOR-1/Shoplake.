@@ -66,10 +66,6 @@ app.get('*', (req, res)=> {
     res.sendFile(path.resolve(__dirname, '../clientside/build', 'index.html'))
 })
 
-app.get('/', (req, res) => {
-    res.send("Welcome to SHOPLAKE");
- });
-
 app.listen(PORT, () => {
     console.log(`Server listening at http://localhost:${PORT}`);
 })
