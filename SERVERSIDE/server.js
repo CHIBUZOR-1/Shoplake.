@@ -34,7 +34,7 @@ app.use((req, res, next) => {
         contentSecurityPolicy: {
             directives: {
                 defaultSrc: ["'self'"],
-                scriptSrc: ["'self'", `'nonce-${res.locals.nonce}'`, "'sha256-abb8e734e53b124180e832faff6ed0cec3182ea0808f7b353e25a31ac80244652'", "https://www.gstatic.com", "https://www.googleapis.com", "https://apis.google.com", "*.tawk.to"],
+                scriptSrc: ["'self'", `'nonce-${res.locals.nonce}'`, "'sha256-b57f26007a21e9e39bdc576d14eb693481b75edbfa74f3cf28df32abd018e40c'", "https://www.gstatic.com", "https://www.googleapis.com", "https://apis.google.com", "*.tawk.to"],
                 styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "*.tawk.to"],
                 imgSrc: ["'self'", "data:", "https://www.gstatic.com", "blob:", "https://as2.ftcdn.net", "https://res.cloudinary.com", "https://cdn.jsdelivr.net", "*.tawk.to"],
                 connectSrc: ["'self'", "https://www.googleapis.com", "https://firebasestorage.googleapis.com", "https://identitytoolkit.googleapis.com", "blob:", "https://res.cloudinary.com", "*.tawk.to"],
