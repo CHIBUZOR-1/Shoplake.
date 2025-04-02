@@ -11,6 +11,7 @@ import Banner_9 from './Banner_9.webp'
 import Banner_8 from './Banner_8.webp'
 import Asus_BANNER2 from './Asus_BANNER2.jpg'
 import Artboard_1 from './Artboard_1.jpg'
+import logo from './logo.png'
 
 
  export const assets = {
@@ -26,5 +27,6 @@ import Artboard_1 from './Artboard_1.jpg'
     Banner_8,
     Banner_9,
     Asus_BANNER2,
-    Artboard_1
+    Artboard_1,
+    logo
 }

@@ -24,9 +24,21 @@ import ScrollToTop from './Components/ScrollToTop';
 import { ToastContainer } from 'react-toastify';
 import Panel from './Pages/Admin/Panel';
 import AdminProfile from './Pages/Admin/AdminProfile';
+import Loading from './Components/Loading';
+import { useEffect, useState } from 'react';
 
 function App() {
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(true); 
+  useEffect(() => { 
+    // Simulate a loading process (e.g., fetching data) 
+    setTimeout(() => { 
+      setIsLoading(false); 
+    }, 3000); // Adjust the loading time as needed 
+  }, []); 
+  if (isLoading) { 
+    return <Loading />; 
+  }
   return (
     <>
       <ToastContainer />
