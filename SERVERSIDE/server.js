@@ -63,7 +63,32 @@ app.use('/api/order', orderRouter);
 app.use(express.static(path.join(__dirname, '../clientside/build')));
 
 app.get('*', (req, res)=> {
-    res.sendFile(path.resolve(__dirname, '../clientside/build', 'index.html'))
+    const nonce = res.locals.nonce; // Get nonce for this request
+    
+    // Path to the built `index.html`
+    const indexHtmlPath = path.resolve(__dirname, '../clientside/build', 'index.html');
+
+    // Read and modify the HTML dynamically
+    fs.readFile(indexHtmlPath, 'utf8', (err, html) => {
+        if (err) {
+            console.error('Error reading index.html:', err);
+            return res.status(500).send('Internal server error');
+        }
+
+        // Inject nonce into CSP meta tag and the Tawk.to `<script>` tag
+        const updatedHtml = html
+            .replace(
+                '<head>',
+                `<head><meta http-equiv="Content-Security-Policy" content="script-src 'self' 'nonce-${nonce}' https://www.gstatic.com https://apis.google.com *.tawk.to;">`
+            )
+            .replace(
+                '<script type="text/javascript">',
+                `<script nonce="${nonce}" type="text/javascript">`
+            );
+
+        // Serve the updated HTML
+        res.send(updatedHtml);
+    });
 })
 
 app.get('/', (req, res) => {
